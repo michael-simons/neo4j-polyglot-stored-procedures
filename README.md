@@ -7,7 +7,7 @@ This is a super insecure Neo4j extension that provides one stored procedure:
 | `scripts.execute` | `scripts.execute(scriptUrl :: STRING?) :: VOID` | scripts.execute(scriptUrl) - Executes the script at the given URL if accessible. Throws things otherwise. |
 
 To run this in the most efficient way, we expect Neo4j to be run on GraalVM for Java 11 and have the necessary dependencies
-in the provided scope
+in the provided scope like this:
 
 ```
 <dependency>
@@ -23,6 +23,9 @@ in the provided scope
     <scope>provided</scope>
 </dependency>
 ```
+
+If you want to use a standard JDK to run Neo4j, remove the scope and include both dependencies.
+However, the JAR will be significantly bigger and probably slower.
 
 The extension itself can be build on a plain JDK 11:
 
