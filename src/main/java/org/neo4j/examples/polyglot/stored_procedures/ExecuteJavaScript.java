@@ -18,7 +18,7 @@ public class ExecuteJavaScript {
 
 	@Procedure(value = "scripts.execute")
 	@Description("scripts.execute(scriptUrl) - Executes the script at the given URL if accessible. Throws things otherwise.")
-	public void join(@Name("scriptUrl") String scriptUrl) throws IOException {
+	public void execute(@Name("scriptUrl") String scriptUrl) throws IOException {
 
 		var uri = Files.readString(Path.of(URI.create(scriptUrl)));
 		try (var context = org.graalvm.polyglot.Context.newBuilder().allowAllAccess(true).build()) {
